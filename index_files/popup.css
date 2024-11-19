@@ -1,0 +1,88 @@
+@import url(https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap);
+.popup-container {
+    position: relative;
+    background-color: #000;
+}
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+.popup-wrap-pic {
+    display: none;
+    font-family: "Ubuntu", sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 15;
+    overflow-y: auto;
+    bottom: 0;
+    padding: 0 0 15px;
+}
+.popup-wrap-pic h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+}
+.popup-wrap-pic .row-pic {
+    display: flex;
+    justify-content: center;
+}
+.popup-wrap-pic .col-pic {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.popup-wrap-pic .col-pic.bordered {
+    border: 2px solid #fff;
+}
+.popup-wrap-pic .col-pic-blocked>img {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+}
+.popup-wrap-pic .col-overlay {
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 10px 2px;
+    box-sizing: border-box;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.popup-wrap-pic .col-pic-blocked .col-overlay {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+.popup-wrap-pic .col-overlay>img {
+    margin: 0 auto 10px;
+}
+.popup-wrap-pic .col-pic>img {
+    max-width: 95px;
+    height: 158px;
+    display: block;
+}
+.popup-wrap-pic .col-pic-rotate-1 .pic {
+    transform: rotateZ(180deg);
+}
+.popup-wrap-pic .col-pic-rotate-2 .pic {
+    transform: rotateZ(360deg);
+}
+.textCaptcha {
+    font-size: 14px;
+    text-align: left;
+}

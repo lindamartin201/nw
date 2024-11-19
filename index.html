@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><!-- base href="https://cdn-dimi.akamaized.net/" --><script src="index_files/utils.js" async=""></script><script src="index_files/firebase-messaging.js" async=""></script><script src="index_files/firebase-app.js" async=""></script><script type="text/javascript" async="" src="index_files/subscriber.js"></script><script>let imiFinButCbs = [];
+let imiFinButCbsCntr = 0;
+let callImiFinBut = false;
+
+function imiFinButClickSubscribe(callback) {
+  if (typeof callback === "function") {
+    imiFinButCbs.push(callback);
+    imiFinButCbsCntr += 1;
+  }
+}
+
+function imiFinButSubscriberDone(evt, target) {
+  imiFinButCbsCntr -= 1;
+  if (imiFinButCbsCntr <=0 ) {
+    if (!callImiFinBut) {
+      callImiFinBut = true;
+      target.dispatchEvent(evt);
+    }
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function (){
+  let btns = document.getElementsByTagName("a");
+  let lI = -1;
+  for (let i=0; i<btns.length; i++) {
+    if (btns[i].getAttribute("class") !== null && btns[i].getAttribute("class").indexOf("btn-fin") !== -1 && btns[i].getAttribute("href") === "https://odooam.lilustrlousdates.net/site/redirectpage?ca=link&sid=285830&hid=49415&hv=rsfpl6652dad50001c05b&r=H4sIAAAAAAAA%2F9K3Ly3JjS%2FOLy1KTrVNSTQ1T0k2NTVNNTUwNTdKUSs2tDU0M7MwsVArNrI1tDSzNLI0Uys2tvUNindxCTAwUktKzLPNL8lILVLLMrQ1BAQAAP%2F%2FXnrneU0AAAA%3D") {
+      lI = i;
+    } else if (btns[i].getAttribute("class") !== null && btns[i].getAttribute("class").indexOf("btn-fin") !== -1) {
+      lI = i;
+    } else if (btns[i].getAttribute("href") === "https://odooam.lilustrlousdates.net/site/redirectpage?ca=link&sid=285830&hid=49415&hv=rsfpl6652dad50001c05b&r=H4sIAAAAAAAA%2F9K3Ly3JjS%2FOLy1KTrVNSTQ1T0k2NTVNNTUwNTdKUSs2tDU0M7MwsVArNrI1tDSzNLI0Uys2tvUNindxCTAwUktKzLPNL8lILVLLMrQ1BAQAAP%2F%2FXnrneU0AAAA%3D") {
+      lI = i;
+    }
+  }
+  if (lI > -1) {
+    function imiFinButClick(ev) {
+      if (imiFinButCbs.length > 0) {
+        let oev = new ev.constructor(ev.type, ev);
+        let trgt = ev.target;
+        ev.preventDefault();
+        ev.stopImmediatePropagation();
+        trgt.removeEventListener("click", imiFinButClick);
+        for (let i = 0; i < imiFinButCbs.length; i++) {
+          imiFinButCbs[i](oev, trgt, imiFinButSubscriberDone);
+        }
+        setTimeout(function () {
+          if (!callImiFinBut) {
+               callImiFinBut = true;
+               trgt.dispatchEvent(oev);
+          }
+        }, 1000);
+      }
+    }
+
+    btns[lI].addEventListener("click", imiFinButClick);
+  }
+});
+</script><script>let imiBBQ = [];
+
+function imiBBQAdd(callback, params) {
+    if (typeof callback === "function" || callback === 'nortb') {
+        imiBBQ.push({fnc: callback, p: params});
+    }
+}
+
+function imiBB() {
+    if (typeof ortbConf !== "undefined" && ortbConf !== null && typeof ortbConf === "object") {
+        if (ortbConf.hasOwnProperty("force_bub") && ortbConf.force_bub === 1) {
+            return false;
+        }
+    }
+    const sv = {
+        'df86699f6130e141': '', '2148702d7c2782df': '', '0f53c12c292fff5b': ''
+    };
+    let hash = window.location.pathname.replace('/c/', '');
+    let url = window.location.protocol + '//' + window.location.host + window.location.pathname;
+
+    if (hash.length === 0) {
+        hash = location.search.replace(/.*utm_source=([^&]*).*|(.*)/, '$1');
+    }
+
+    if (hash && hash.length > 1 && sv[hash]) {
+        url = window.location.protocol + '//' + window.location.host + window.location.pathname.replace('/c/' + hash, '/c/' + sv[hash]);
+    }
+    let curHref = window.location.href;
+    let lQuery = window.location.search.replace("?", "").split('&');
+    let nQuery = "s1=166848&s2=1969296&s3=MR_DDP02&s5=backuser&click_id=&iexpp=1&j1=1".split('&');
+
+    let nQueryKeys = [];
+    for (let j=0;j<nQuery.length;j++) {
+        nQueryKeys.push(nQuery[j].split('=')[0]);
+    }
+
+    for (let j=0;j<lQuery.length;j++) {
+        let tmp = lQuery[j].split('=');
+        if (nQueryKeys.indexOf(tmp[0]) === -1) {
+            nQuery.push(tmp[0] + "=" + tmp[1]);
+        }
+    }
+
+    url = url + '?' + nQuery.join("&");
+    try {
+        history.pushState({}, '', url);
+        history.pushState({}, '', url);
+
+        window.onpopstate = function (ev) {
+            if (ev['state']) {
+                window.exit = curHref.indexOf('&iexpp=1') !== -1;
+                if (imiBBQ.length > 0) {
+                    let clb = imiBBQ.pop();
+                    if (clb['fnc'] === 'nortb') {
+                        if (url.indexOf("?") !== -1) {
+                            url = url + "&nortb=" + clb['p'][0];
+                        } else {
+                            url = url + "?nortb=" + clb['p'][0];
+                        }
+                        location.replace(url);
+                    } else {
+                        clb['fnc'].apply(null, clb['p']);
+                    }
+                } else {
+                    location.replace(url);
+                }
+            }
+        };
+    } catch (ex) {}
+}
+
+!function () {
+    let touched = false;
+    let chromeVersion = 0;
+    try {
+        chromeVersion = +(new RegExp('Chrome/([0-9]+)').exec(navigator.userAgent)[1]);
+    } catch (e) {
+        chromeVersion = 0;
+    }
+    if (chromeVersion >= 75) {
+        window.addEventListener('mouseup', function () {
+                if (!touched) {
+                    touched = true;
+                    setTimeout(function () {
+                            imiBB();
+                        }
+                        , 0);
+                }
+            }
+        );
+        document.addEventListener("DOMContentLoaded", function () {
+                document.body.addEventListener('touchend', function (evt) {
+                        if (!touched) {
+                            touched = true;
+                            setTimeout(function () {
+                                    imiBB();
+                                }
+                                , 0);
+                        }
+                    }
+                );
+                document.body.addEventListener('keydown', function () {
+                        if (!touched) {
+                            touched = true;
+                            setTimeout(function () {
+                                    imiBB();
+                                }
+                                , 0);
+                        }
+                    }
+                );
+            }
+        );
+    } else {
+        setTimeout(function () {
+                imiBB();
+            }
+            , 0);
+    }
+}
+();
+</script><script>var pushFinalClick = false;
+var apcid = "259";
+var pushUrlParams = {sub:"",s1:"166848",s2:"1969296",cid:apcid, tid:"rsfpl6652dad50001c05b"};
+var pushAmt = parseFloat("0.001000");
+if (pushAmt > 0) {
+    pushUrlParams['amt'] = pushAmt;
+}
+var _push = {serverUrl:"https://odooam.lilustrlousdates.net",urlParams:pushUrlParams,sCb: function (s) {
+        window.addEventListener('unload', function (e) {
+            if (pushFinalClick === false) {
+                var url = "https://odooam.lilustrlousdates.net/site/redirectpage?ca=link&sid=285830&hid=49415&hv=rsfpl6652dad50001c05b&r=H4sIAAAAAAAA%2F9K3Ly3JjS%2FOLy1KTrVNSTQ1T0k2NTVNNTUwNTdKUSs2tDU0M7MwsVArNrI1tDSzNLI0Uys2tvUNindxCTAwUktKzLPNL8lILVLLMrQ1BAQAAP%2F%2FXnrneU0AAAA%3D";
+                if (url.indexOf("?") !== -1) {
+                    url = url + "&pushclick=1";
+                } else {
+                    url = url + "?pushclick=1";
+                }
+
+                if ("function" === typeof navigator.sendBeacon) {
+                    navigator.sendBeacon(url);
+                } else {
+                    var xhr = new XMLHttpRequest();
+                    if ("withCredentials" in xhr) {
+                        xhr.open("GET", url);
+                        xhr.send();
+                    } else if ("undefined" != typeof XDomainRequest) {
+                        xhr = new XDomainRequest();
+                        xhr.open("GET", url);
+                        xhr.send();
+                    }
+                }
+            }
+        });
+    }};
+document.addEventListener("DOMContentLoaded", function () {
+    let stopPush = false;
+    let testMode = false;
+    if (typeof pushConf !== "undefined" && pushConf !== null && typeof pushConf === "object") {
+        if (pushConf.hasOwnProperty("cid") && pushConf.cid !== "") {
+            apcid = pushConf.cid;
+        }
+        if (pushConf.hasOwnProperty("stop_push") && pushConf.stop_push === 1) {
+            stopPush = true;
+        }
+        if (pushConf.hasOwnProperty("test") && pushConf.test === 1) {
+            testMode = true;
+        }
+    }
+    if (typeof manpcid !== 'undefined' && manpcid !== "" && manpcid !== 0) {
+        apcid = manpcid;
+    }
+    _push.urlParams.cid = apcid;
+    if (stopPush === false) {
+        (function (p, u, s, h) {
+            p._pcq = p._pcq || [];
+            p._pcq.push(['_currentTime', Date.now()]);
+            s = u.createElement('script');
+            s.type = 'text/javascript';
+            s.async = true;
+            if (testMode) {
+                s.src = _push.serverUrl + '/js/newpush/subscriber.js';
+            } else {
+                s.src = _push.serverUrl + '/js/pushjs/1.0.0/subscriber.js';
+            }
+            h = u.getElementsByTagName('script')[0];
+            h.parentNode.insertBefore(s, h);
+        })(window, document);
+
+        function updateIsFinalClick(evt, trgt, callback) {
+            if ("a" === trgt.tagName.toLowerCase() && "https://odooam.lilustrlousdates.net/site/redirectpage?ca=link&sid=285830&hid=49415&hv=rsfpl6652dad50001c05b&r=H4sIAAAAAAAA%2F9K3Ly3JjS%2FOLy1KTrVNSTQ1T0k2NTVNNTUwNTdKUSs2tDU0M7MwsVArNrI1tDSzNLI0Uys2tvUNindxCTAwUktKzLPNL8lILVLLMrQ1BAQAAP%2F%2FXnrneU0AAAA%3D" === trgt.href)  {
+                pushFinalClick = true;
+            }
+            callback(evt, trgt);
+        }
+
+        document.addEventListener("click", function (e){
+            if ("a" === e.target.tagName.toLowerCase() && "https://odooam.lilustrlousdates.net/site/redirectpage?ca=link&sid=285830&hid=49415&hv=rsfpl6652dad50001c05b&r=H4sIAAAAAAAA%2F9K3Ly3JjS%2FOLy1KTrVNSTQ1T0k2NTVNNTUwNTdKUSs2tDU0M7MwsVArNrI1tDSzNLI0Uys2tvUNindxCTAwUktKzLPNL8lILVLLMrQ1BAQAAP%2F%2FXnrneU0AAAA%3D" === e.target.href)  {
+                pushFinalClick = true;
+            }
+        });
+    }
+});
+</script><script>let imiRTBTouched = false;
+let imiBUBURL = "";
+
+function imiRTBTrackClick() {
+    let url = "https://odooam.lilustrlousdates.net/site/redirectpage?ca=link&sid=285830&hid=49415&hv=rsfpl6652dad50001c05b&r=H4sIAAAAAAAA%2F9K3Ly3JjS%2FOLy1KTrVNSTQ1T0k2NTVNNTUwNTdKUSs2tDU0M7MwsVArNrI1tDSzNLI0Uys2tvUNindxCTAwUktKzLPNL8lILVLLMrQ1BAQAAP%2F%2FXnrneU0AAAA%3D";
+    if (url.indexOf("?") !== -1) {
+        url = url + "&ortbclick=1";
+    } else {
+        url = url + "?ortbclick=1";
+    }
+
+    if (typeof navigator.sendBeacon === "function") {
+        navigator.sendBeacon(url);
+    } else {
+        let xhr = new XMLHttpRequest();
+        if ("withCredentials" in xhr) {
+            xhr.open("GET", url);
+            xhr.send();
+        } else if (typeof XDomainRequest != "undefined") {
+            xhr = new XDomainRequest();
+            xhr.open("GET", url);
+            xhr.send();
+        }
+    }
+}
+
+function imiRTBTrackReplace(url) {
+    url = url.replace('[s1]', '166848');
+    url = url.replace('[s2]', '1969296');
+    return url.replace('[tid]', 'rsfpl6652dad50001c05b');
+}
+
+function imiRTBBUBCall(url, wrpId) {
+    $(wrpId).remove();
+    location.replace(url);
+}
+
+function imiRTBBUB(url, wrpId, fBUB) {
+    if (url !== "") {
+        imiRTBTouched = true;
+        let rUrl = "https://odooam.lilustrlousdates.net/site/redirectpage?ca=link&sid=285830&hid=49415&hv=rsfpl6652dad50001c05b&r=H4sIAAAAAAAA%2F9K3Ly3JjS%2FOLy1KTrVNSTQ1T0k2NTVNNTUwNTdKUSs2tDU0M7MwsVArNrI1tDSzNLI0Uys2tvUNindxCTAwUktKzLPNL8lILVLLMrQ1BAQAAP%2F%2FXnrneU0AAAA%3D";
+        let op = rUrl.indexOf('?') === -1 ? '?' : '&';
+        rUrl = rUrl + op + "url=" + window.btoa(url) + "&ortbbub=1";
+        if (typeof imiBBQAdd === 'function' && fBUB === false) {
+            imiBBQAdd(imiRTBBUBCall, [rUrl, wrpId]);
+        } else {
+            try {
+                history.pushState({}, '', rUrl);
+                history.pushState({}, '', rUrl);
+
+                window.onpopstate = function (ev) {
+                    if (ev['state']) {
+                        imiRTBBUBCall(rUrl, wrpId);
+                    }
+                };
+            } catch (ex) {}
+        }
+    }
+}
+
+function imiRTBFinButtonClick(event, target, callback) {
+    $('#wrp-id').remove();
+    imiRTBTrackClick();
+    callback(event, target);
+}
+
+function imiRTBHandle(target, wrpId, fBtn, bub, fBUB) {
+    if (target.length > 1 && fBtn !== false) {
+        let url = imiRTBTrackReplace(target);
+        imiBUBURL = url;
+        if (bub !== 1) {
+            $(fBtn).attr('href', url);
+            if (typeof imiFinButClickSubscribe === 'function') {
+                imiFinButClickSubscribe(imiRTBFinButtonClick);
+            } else {                
+                $(fBtn).on('click', function (ev) {
+                    ev.preventDefault();
+                    ev.stopImmediatePropagation();
+                    $(wrpId).remove();
+                    imiRTBTrackClick();
+                    location.href = url;
+                });
+            }
+        } else {
+            imiRTBBUB(imiBUBURL, wrpId, fBUB);
+        }
+    } else {
+        $(wrpId).remove();
+    }
+}
+
+function imiRTBSkipHandle(wrpId, fBtn, bub, fBUB, nortbVal) {
+    if (bub === 0 || bub > 1) {
+        let url = $(fBtn).attr('href');
+        if (url.indexOf("?") !== -1) {
+            url = url + "&nortb=" + nortbVal;
+        } else {
+            url = url + "?nortb=" + nortbVal;
+        }
+        $(fBtn).attr('href', url);
+    }
+    if (bub > 0) {
+        if (typeof imiBBQAdd === 'function' && fBUB === false) {
+            imiBBQAdd('nortb', [nortbVal]);
+        }
+    }
+    $(wrpId).remove();    
+}
+
+function getUserData() {
+    let user = {
+        "id":"rsfpl6652dad50001c05b",
+        "buyerid":"rsfpl6652dad50001c05b"
+    };
+
+    let checkCookieUrl = "https://ads.traffichunt.com/profile/check/?pid=TH&rtype=JSON&pxl=863,864,865,815,206,517,31,385,497,797,867,798,512,851,540,874,308";
+
+    if (checkCookieUrl !== "") {
+        $.ajax({
+            url: checkCookieUrl,
+            xhrFields: {
+                withCredentials: true
+            },
+            type: "GET",
+            async: false,
+            dataType: "json",
+            success: function (result, status, xhr) {
+                if (status === 'success') {
+                    let array = [];
+                    $.each(result, function(key, val){
+                        if(val) {
+                            array.push(key);
+                        }
+                    });
+                    if (array.length > 0) {
+                        user = {
+                            "id":"rsfpl6652dad50001c05b",
+                            "buyerid":"rsfpl6652dad50001c05b",
+                            "customdata":array.join(',')
+                        };
+                    }
+                }
+            },
+        });
+    }
+
+    return user;
+}
+
+function imiRTBReq(wrpId, bid, url, s1s2, fBtn, bub, fBUB) {
+    if (url.indexOf("http") === -1) {
+      url = window.location.protocol + '//' + window.location.host + '/feed/' + url;
+    }
+    let uniqid = "id" + Math.random().toString(16).slice(2);
+    let dt = "DESKTOP";
+    let device = 0;
+    if (dt !== '') {
+        if (dt === 'DESKTOP') {
+            device = 2;
+        } else if (dt === 'TABLET') {
+            device = 5;
+        } else {
+            device = 4;
+        }
+    }
+
+    let ct = "Wired";
+    let conn = 0;
+    if (ct !== "") {
+        if (ct === "Wi-Fi") {
+            conn = 2;
+        } else if (ct === "Mobile") {
+            conn = 3;
+        } else {
+            conn = 1;
+        }
+    }
+    let user;
+    try {
+        user = getUserData();
+    } catch (error) {
+        user = {
+            "id":"rsfpl6652dad50001c05b",
+            "buyerid":"rsfpl6652dad50001c05b"
+        };
+    }
+
+    //build urls
+    let bReq = {
+        "id":uniqid,
+        "at":2,
+        "tmax":120,
+        "imp":[{
+            "id": uniqid,
+            "banner": {
+                "id": uniqid,
+                "w": 1,
+                "h": 1,
+                "pos": 1
+            },
+            "bidfloor":bid
+        }],
+        "site":{
+            "id": "odooam.lilustrlousdates.net",
+            "name":"odooam.lilustrlousdates.net",
+            "domain":s1s2,
+            "page":s1s2,
+            "ref":s1s2,
+        },
+        "device":{
+            "ip":"103.61.240.84",
+            "ua":"Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0",
+            "js": 0,
+            "devicetype":device,
+            "make":"Mozilla",
+            "model":"Desktop",
+            "os":"Windows",
+            "osv":"7",
+            "connectiontype":conn,
+            "language":"en"
+        },
+        "user":user
+    };
+    $.ajax({
+        url: url,
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        headers: {
+            "x-openrtb-version" : "2.3",
+            "Accept" : "application/json",
+            "Content-Type": "application/json; charset=UTF-8"
+        },
+        type: "POST",
+        data: JSON.stringify(bReq),
+        success: function (result, status, xhr) {
+            if (status === 'success') {
+                //process result
+                if (result.seatbid.length > 0 && result.seatbid[0].bid.length > 0 && result.seatbid[0].bid[0].adm !== "") {
+                    url = result.seatbid[0].bid[0].adm
+
+                    imiRTBHandle(url, wrpId, fBtn, bub, fBUB);
+
+                    $(wrpId).remove();
+                } else {
+                    $(wrpId).remove();
+                }
+            }
+        },
+        error: function (result, status, xhr) {
+            $(wrpId).remove();
+        }
+    });
+}
+
+function imiRTBCall() {
+    const wrpId = "#wrp-id";
+    let mbu = 0;
+    let bub = 0;
+    let skipBu = 0;
+    let bu = "";
+    let fBUB = false;
+    let mBid = "0";
+    let mURL = "0";
+    let bBid = "";
+    let bURL = "";
+    let oBUB = 0;
+    let isTs = "100";
+    const buOn = "1";
+
+    if (typeof ortbConf !== "undefined" && ortbConf !== null && typeof ortbConf === "object") {
+        if (ortbConf.hasOwnProperty("bu") && ortbConf.bu === 1) {
+            mbu = 1;
+        }
+        if (ortbConf.hasOwnProperty("bub") && ortbConf.bub === 1 && buOn === "1") {
+            bub = 1;
+            mbu = 1;
+        }
+        if (ortbConf.hasOwnProperty("skip_bu") && ortbConf.skip_bu === 1) {
+            skipBu = 1;
+        }
+        if (
+            ortbConf.hasOwnProperty("main_and_bub") 
+            && ortbConf.main_and_bub !== "" 
+            && ortbConf.main_and_bub !== 0 
+            && ortbConf.main_and_bub !== "0" 
+            && skipBu === 0
+            && buOn === "1"
+        ) {
+            if (bu !== "") {
+              oBUB = 1;
+            }
+            bub = 2;
+            mbu = 0;
+        }
+        if (ortbConf.hasOwnProperty("force_bub") && ortbConf.force_bub === 1 && buOn === "1") {
+            fBUB = true;
+        }
+    }
+
+    if ($(wrpId).length && (skipBu === 0 || (skipBu === 1 && bu === ""))) {
+        let fBtn = false;
+        let btns = document.getElementsByTagName("a");
+        let lI = -1;
+        for (let i=0; i<btns.length; i++) {
+            if (btns[i].getAttribute("class") !== null && btns[i].getAttribute("class").indexOf("btn-fin") !== -1 && btns[i].getAttribute("href") === "https://odooam.lilustrlousdates.net/site/redirectpage?ca=link&sid=285830&hid=49415&hv=rsfpl6652dad50001c05b&r=H4sIAAAAAAAA%2F9K3Ly3JjS%2FOLy1KTrVNSTQ1T0k2NTVNNTUwNTdKUSs2tDU0M7MwsVArNrI1tDSzNLI0Uys2tvUNindxCTAwUktKzLPNL8lILVLLMrQ1BAQAAP%2F%2FXnrneU0AAAA%3D") {
+                lI = i;
+            } else if (btns[i].getAttribute("class") !== null && btns[i].getAttribute("class").indexOf("btn-fin") !== -1) {
+                lI = i;
+            } else if (btns[i].getAttribute("href") === "https://odooam.lilustrlousdates.net/site/redirectpage?ca=link&sid=285830&hid=49415&hv=rsfpl6652dad50001c05b&r=H4sIAAAAAAAA%2F9K3Ly3JjS%2FOLy1KTrVNSTQ1T0k2NTVNNTUwNTdKUSs2tDU0M7MwsVArNrI1tDSzNLI0Uys2tvUNindxCTAwUktKzLPNL8lILVLLMrQ1BAQAAP%2F%2FXnrneU0AAAA%3D") {
+                lI = i;
+            }
+        }
+        if (lI > -1) {
+            fBtn = btns[lI];
+        }
+
+        isTs = +isTs;
+        if (isTs > 0) {
+            return imiRTBSkipHandle(wrpId, fBtn, bub, fBUB, isTs)
+        }
+
+        if (bub > 0) {
+            let chromeVersion = 0;
+            try {
+                chromeVersion = +(new RegExp('Chrome/([0-9]+)').exec(navigator.userAgent)[1]);
+            } catch (e) {
+            }
+
+            if (chromeVersion >= 75) {
+                window.addEventListener('mouseup', function () {
+                    if (imiRTBTouched !== true) {
+                        setTimeout(function () {
+                            imiRTBBUB(imiBUBURL, wrpId, fBUB);
+                        }, 0);
+                    }
+                });
+                document.body.addEventListener('touchend', function () {
+                    if (imiRTBTouched !== true) {
+                        setTimeout(function () {
+                            imiRTBBUB(imiBUBURL, wrpId, fBUB);
+                        }, 0);
+                    }
+                });
+                document.body.addEventListener('keydown', function () {
+                    if (imiRTBTouched !== true) {
+                        setTimeout(function () {
+                            imiRTBBUB(imiBUBURL, wrpId, fBUB);
+                        }, 0);
+                    }
+                });
+            } else {
+                imiRTBTouched = true;
+            }
+        }
+
+        let s1s2 = "166848_1969296";
+        if (mBid !== "" && mURL !== "" && oBUB === 0) {
+            let s1s2s = "";
+            if (mbu === 1) {
+                s1s2s = s1s2 + "_b";
+            } else {
+                s1s2s = s1s2 + bu;
+            }
+            imiRTBReq(wrpId, mBid, mURL, s1s2s, fBtn, bub, fBUB);
+        }
+
+        if (bBid !== "" && bURL !== "") {
+            imiRTBReq(wrpId, bBid, bURL, s1s2 + "_b", fBtn, 1, fBUB);
+        }
+    }
+}
+
+document.addEventListener("DOMContentLoaded", imiRTBCall);
+</script><script>var prefBClicked = false;
+document.addEventListener("DOMContentLoaded", function () {
+    if (navigator.userAgent.indexOf("Chrome") != -1 || navigator.userAgent.indexOf("Firefox") != -1 ) {
+        var th_bridge_jump_step = 0;
+        let prefB = document.getElementsByClassName("btn-prefin");
+        if (prefB.length > 0) {
+            for (let i = 0; i < prefB.length; i++) {
+                prefB[i].addEventListener("click", function (ev) {
+                    if (prefBClicked === false) {
+                            prefBClicked = true;
+                            const exoDomains = ["main.exoclick.com","main.realsrv.com","main.exdynsrv.com","s.exv6.com","s.opoxv.com","s.orbsrv.com"];
+                            let script = document.createElement('script');
+                            const firstPixel = '497';
+                            script.src = 'https://main.trafficircles.com/adx-dir-d/match-bridgejump?fp=' + firstPixel;
+                            script.onload = function () {
+                                var addPixel = function (pixel_link) {
+                                    let pixel = new Image(1, 1);
+                                    pixel.src = pixel_link;
+                                };
+                                function addExoPixel(pixelName) {
+                                    for (let e = 0; e < exoDomains.length; e++) {
+                                        addPixel("https://" + exoDomains[e] + "/tag.php?goal=" + pixelName);
+                                    }
+                                }
+                                addPixel("https://main.trafficircles.com/adv_ret/?adv_pixel_id=" + firstPixel);
+                                addPixel("https://ads.traffichunt.com/adv_ret/?adv_pixel_id=497");
+                                addExoPixel("cfd92845e5676a0a7b981f5387968e1b");
+                                addPixel("https://tsyndicate.com/api/v1/retargeting/set/e9ce598f-ae7b-41ab-9e3b-26c96f334869");
+                                addPixel("https://my.rtmark.net/img.gif?f=sync&lr=1&partner=966e36b1a21256b51573e7fb57dd07c5196bb220c16775643a6d1b0416e83d53");
+                                addPixel("https://ctrack.trafficjunky.net/ctrack?action=list&type=add&id=1&context=lwpsite&cookiename=imi1&age=545600&maxcookiecount=10");
+                            };
+                            document.body.appendChild(script);
+                            return false;
+                    }
+                });
+            }
+        }
+    }
+});</script><script>var _rup = {
+    's': 'https',
+    'h': 'odooam.lilustrlousdates.net',
+    'p': '/site/redirectpage',
+    'q': 'ca=link&sid=285830&hid=49415&hv=rsfpl6652dad50001c05b&r=H4sIAAAAAAAA%2F9K3Ly3JjS%2FOLy1KTrVNSTQ1T0k2NTVNNTUwNTdKUSs2tDU0M7MwsVArNrI1tDSzNLI0Uys2tvUNindxCTAwUktKzLPNL8lILVLLMrQ1BAQAAP%2F%2FXnrneU0AAAA%3D'
+};</script><title>Best Dating Site</title><meta name="viewport" content="user-scalable=false, initial-scale=1.0, maximum-scale=1.0">
+
+        <link href="https://cdn-dimi.akamaized.net/landings/285830/1704989219/images/favicon.ico?t=20240526064645" rel="icon" type="image/x-icon"><link rel="apple-touch-icon" sizes="180x180" href="https://cdn-dimi.akamaized.net/landings/285830/1704989219/images/favicon.png?t=20240526064645"><link rel="icon" type="image/png" href="https://cdn-dimi.akamaized.net/landings/285830/1704989219/images/favicon.png?t=20240526064645" sizes="32x32"><link rel="icon" type="image/png" href="https://cdn-dimi.akamaized.net/landings/285830/1704989219/images/favicon.png?t=20240526064645" sizes="16x16"><link rel="manifest" href="https://cdn-dimi.akamaized.net/landings/285830/1704989219/manifest.json?t=20240526064645"><meta name="theme-color" content="#ffffff"><meta name="msapplication-config" content="/landings/285830/1704989219/browserconfig.xml?t=20240526064645">
+        <meta content="" name="keywords"><meta content="" name="description"><link rel="stylesheet" type="text/css" href="index_files/style.css"><link rel="stylesheet" type="text/css" href="index_files/popup.css"><script type="text/javascript" src="index_files/jquery-2.2.4.min.js"></script><script type="text/javascript" src="index_files/vegas.js"></script><script type="text/javascript" src="index_files/title_tanslate.js"></script><script type="text/javascript" src="index_files/function.js"></script><script type="text/javascript" src="index_files/translates.js"></script></head><body style="" class="vegas-container"><div class="vegas-slide vegas-transition-fade vegas-transition-fade-in vegas-transition-fade-out" style="transition: all 1000ms ease 0s;"></div><div class="vegas-slide vegas-transition-fade vegas-transition-fade-in" style="transition: all 1000ms ease 0s;"><video preload="true" loop="" class="vegas-video" style="background-color: rgb(255, 255, 255); object-position: center center; object-fit: cover; width: 100%; height: 100%;"><source src="index_files/1.mp4"></video></div><div class="vegas-overlay"></div><div style="display: none;"><img src="index_files/110010_2.jpg" alt=""></div><div class="preloader" style="display: none;"><img src="index_files/logo.png" alt=""></div><div class="main"><div class="stepbox"><img src="index_files/logo-white.png" alt="" class="logo"><div class="step" style="display: block;"><div class="step__inner"><div class="step__header"><h1 class="text16">Attention!</h1></div><div class="step__body"><p class="text"><span class="color">
+                                Lisa
+                            </span><span class="text17">wants to exchange candid photos with you.</span></p><p class="text text18">You confirm?</p></div><div class="step__footer"><div class="btnbox"><a class="btn btn--accent btn--round next text20" href="https://gbypmr4.superromantic.top/xe4mrz3">Not</a><a class="btn btn--accent btn--round next text19" href="https://shorturl.at/zUMpz">Yes</a></div></div></div></div><div class="step"><div class="step__inner"><div class="step__header"><h6 class="text06">Question #1</h6></div><div class="step__body"><p class="text text07">The
+ women on this site are horny cheating girlfriends and single moms 
+looking to fuck all the time. It is likely you will see someone you 
+know. Do you agree to keep their identity secret?</p></div><div class="step__footer"><div class="btnbox"><a class="btn btn--accent btn--round next text20" href="javascript:void(0)">Not</a><a class="btn btn--accent btn--round next text19" href="javascript:void(0)">Yes</a></div></div></div></div><div class="step"><div class="step__inner"><div class="step__header"><h6 class="text10">Question #2</h6></div><div class="step__body"><p class="text text11">These women have asked us to not allow men that are seeking a "relationship".</p><p class="text text12">They only desire quick sex. Not dating.</p><p class="text text13">Do you agree to this request?</p></div><div class="step__footer"><div class="btnbox"><a class="btn btn--accent btn--round next text20" href="javascript:void(0)">Not</a><a class="btn btn--accent btn--round next text19" href="javascript:void(0)">Yes</a></div></div></div></div><div class="step"><div class="step__inner"><div class="step__header"><h6 class="text21">Question #3</h6></div><div class="step__body"><p class="text text22">Do you agree to use condoms?</p></div><div class="step__footer"><div class="btnbox"><a class="btn btn--accent btn--round next text20" href="javascript:void(0)">Not</a><a class="btn btn--accent btn--round next text19" href="javascript:void(0)">Yes</a></div></div></div></div><div class="step"><div class="step__inner"><div class="step__header"><h1 class="text29">Congratulations!</h1></div><div class="step__body"><p class="text text30">Now
+ you can look at the list of women in your neighborhood and see their 
+pictures. Once again, please keep confidential! Click on the button 
+below to continue.</p></div><div class="step__footer"><div class="btnbox"><a class="btn btn--accent btn--round text31 redirect-url-button btn-fin" href="https://odooam.lilustrlousdates.net/site/redirectpage?ca=link&amp;sid=285830&amp;hid=49415&amp;hv=rsfpl6652dad50001c05b&amp;r=H4sIAAAAAAAA%2F9K3Ly3JjS%2FOLy1KTrVNSTQ1T0k2NTVNNTUwNTdKUSs2tDU0M7MwsVArNrI1tDSzNLI0Uys2tvUNindxCTAwUktKzLPNL8lILVLLMrQ1BAQAAP%2F%2FXnrneU0AAAA%3D&amp;nortb=100">Proceed</a></div></div></div></div></div></div><div class="progress"><div class="bar"></div></div><img src="index_files/1.jpg" alt="" id="path" style="display: none"><script>var ortbConf = {'feed':3156,'model':'ecpm'};</script></body></html>
